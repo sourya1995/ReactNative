@@ -12,7 +12,7 @@ export default function App() {
         <LittleLemonHeader />
         <MenuItems />
       </View>
-      <View style={styles.container.backgroundColor}>
+      <View style={styles.footerContainer}>
         <LittleLemonFooter />
       </View>
     </>
