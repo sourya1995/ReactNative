@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ScrollView } from "react-native/types";
+import { KeyboardAvoidingView, Platform, ScrollView } from "react-native/types";
 
 const FeedbackForm = () => {
     const [firstName, onChangeFirstName] = useState('');
@@ -8,29 +8,31 @@ const FeedbackForm = () => {
     const [phoneNumber, onChangePhoneNumber] = useState('');
 
     return (
-        <ScrollView style={styles.container}>
-            <Text style={styles.headingSection}>
-                How was your visit to Little Lemon?
-            </Text>
-            <Text style={styles.infoSection}>
-                Little Lemon is a charming neighborhood bistro that serves simple food
-                and classic cocktails in a lively but casual environment. We would love
-                to hear your experience with us!
-            </Text>
-            <TextInput style={styles.input} value={firstName} onChangeText={onChangeFirstName}/>
-            <TextInput style={styles.input} value={lastName} onChangeText={onChangeLastName}/>
-            <TextInput style={styles.messageInput} value={message} onChangeText={onChangeMessage}/>
+        <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <ScrollView keyboardDismissMode="on-drag">
+                <Text style={styles.headingSection}>
+                    How was your visit to Little Lemon?
+                </Text>
+                <Text style={styles.infoSection}>
+                    Little Lemon is a charming neighborhood bistro that serves simple food
+                    and classic cocktails in a lively but casual environment. We would love
+                    to hear your experience with us!
+                </Text>
+                <TextInput style={styles.input} value={firstName} onChangeText={onChangeFirstName} />
+                <TextInput style={styles.input} value={lastName} onChangeText={onChangeLastName} />
+                <TextInput style={styles.messageInput} value={message} onChangeText={onChangeMessage} />
 
 
-           
-        </ScrollView>
+
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-       
+
     },
     input: {
         height: 40,
