@@ -1,6 +1,6 @@
 import { FlatList, ScrollView, View } from "react-native/types";
 
-const menuItemsToDisplay = [
+
     const menuItemsToDisplay = [
     { name: 'Hummus', price: '$5.00', id: '1A' },
     { name: 'Moutabal', price: '$5.00', id: '2B' },
