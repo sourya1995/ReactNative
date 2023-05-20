@@ -18,9 +18,10 @@ const FeedbackForm = () => {
                     and classic cocktails in a lively but casual environment. We would love
                     to hear your experience with us!
                 </Text>
-                <TextInput style={styles.input} value={firstName} onChangeText={onChangeFirstName} />
-                <TextInput style={styles.input} value={lastName} onChangeText={onChangeLastName} />
-                <TextInput style={styles.messageInput} value={message} onChangeText={onChangeMessage} />
+                <TextInput style={styles.input} value={firstName} onChangeText={onChangeFirstName} placeholder={'First Name'} />
+                <TextInput style={styles.input} value={lastName} onChangeText={onChangeLastName} placeholder={'Last Name'} />
+                <TextInput style={styles.input} value={phoneNumber} onChangeText={onChangePhoneNumber} placeholder={'Phone Number'} keyboardType={"phone-pad"} />
+                <TextInput style={styles.messageInput} value={message} onChangeText={onChangeMessage} placeholder={'Please Leave Feedback'} multiline={true} maxLength={250}/>
 
 
 
