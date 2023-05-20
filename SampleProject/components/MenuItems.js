@@ -7,14 +7,35 @@ const menuItemsToDisplay = [
 const MenuItems = () => {
     return( 
         <View style={{ flex: 0.75}}>
-            <ScrollView indicatorStyle={"white"} style={{ paddingHorizontal: 40, paddingVertical: 40, backgroundColor: "black", }}>
-                <Text style={{ color: 'white', fontSize: 40, flexWrap: 'wrap' }}>
+            <ScrollView horizontal= {false} indicatorStyle={"white"} style={menuStyles.innerContainer}>
+                <Text style={menuStyles.headerText}>
                     View Menu
                 </Text>
-                <Text style={{ color: '#F4CE14', fontSize: 36 }}>{ menuItemsToDisplay[0] }</Text>
+                <Text style={menuStyles.itemText}>{ menuItemsToDisplay[0] }</Text>
             </ScrollView>
         </View>
     );
 };
 
 export default MenuItems;
+
+const menuStyles = StyleSheet.create({
+    container: {
+        flex: 0.75,
+    },
+    innerContainer: {
+        paddingHorizontal: 40,
+        paddingVertical: 40,
+        backgroundColor: "black",
+    },
+    headerText: {
+        color: 'white',
+        fontSize: 40,
+        flexWrap: 'wrap',
+    },
+    itemText: {
+        color: '#F4CE14',
+        fontSize: 36,
+    },
+});
+
