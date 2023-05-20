@@ -8,7 +8,7 @@ import WelcomeScreen from './components/WelcomeScreen';
 export default function App() {
   return (
     <>
-      <View style={ styles.container }>
+      <View style={styles.container}>
         <LittleLemonHeader />
         <WelcomeScreen />
       </View>
@@ -22,7 +22,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#495E57',
+    backgroundColor: '#333333',
+  },
+  footerContainer: {
+    backgroundColor: '#333333',
   },
 });
 
