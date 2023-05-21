@@ -1,7 +1,8 @@
-import { ScrollView, useColorScheme } from "react-native/types"
+import { ScrollView, useColorScheme, useWindowDimensions } from "react-native/types"
 
 const Welcome = () => {
     const colorScheme = useColorScheme();
+    const window = useWindowDimensions();l
     return (
           <ScrollView style={[styles.container, colorScheme === 'light' ? { backgroundColor: '#fff'} : {backgroundColor: '#333333'}, ]}> {''}
             <Image style={styles.logo} source={require('img/littleLemonLogo.png')} 
@@ -10,6 +11,10 @@ const Welcome = () => {
             <Text style={styles.title}>
                 Little Lemon, your local Mediterranean Bistro
             </Text>
+            <Text style={styles.regular}>Window Dimensions</Text> {''}
+            <Text style={styles.regular}>Height: {window.height}</Text> {''}
+            <Text style={styles.regular}>Width: {window.width}</Text> {''}
+            <Text style={styles.regular}>Font Scale: {window.fontScale}</Text> {''}
             <Image style={styles.image} source={require('img/Picture1.png')} resizeMode="cover" accessible={true}
             accessibilityLabel={'Little Lemon Logo'}/>
             <Image style={styles.image} source={require('img/Picture2.png')} resizeMode="cover" accessible={true}
