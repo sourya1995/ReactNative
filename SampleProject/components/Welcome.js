@@ -2,7 +2,7 @@ import { ScrollView, useColorScheme, useWindowDimensions } from "react-native/ty
 
 const Welcome = () => {
     const colorScheme = useColorScheme();
-    const window = useWindowDimensions();l
+    const window = useWindowDimensions();
     return (
           <ScrollView style={[styles.container, colorScheme === 'light' ? { backgroundColor: '#fff'} : {backgroundColor: '#333333'}, ]}> {''}
             <Image style={styles.logo} source={require('img/littleLemonLogo.png')} 
