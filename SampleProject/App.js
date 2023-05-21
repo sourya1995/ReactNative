@@ -22,8 +22,9 @@ export default function App() {
       </View> */}
 
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Welcome">
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Navigator initialRouteName="Welcome"
+        screenOptions = {{ headerStyle: { backgroundColor: '#FBDABB' }}}>
+          <Stack.Screen name="Welcome" component={WelcomeScreen} options = {{ title: 'Home'}} />
           <Stack.Screen name="Menu" component={MenuScreen} />
         </Stack.Navigator>
       </NavigationContainer>
