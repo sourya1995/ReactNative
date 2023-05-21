@@ -8,10 +8,12 @@ import LoginScreen from './components/LoginScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <>
@@ -20,21 +22,22 @@ export default function App() {
       <NavigationContainer>
         <View style={styles.container}>
           <LittleLemonHeader />
-          <Tab.Navigator 
-            screenOptions={( {route} ) => ({ tabBarIcon: ({size}) => {
-              let iconName;
-              if(route.name === 'Welcome'){
-                iconName = 'ios-home';
-              } else if (route.name === 'Login'){
-                iconName = 'ios-enter';
-              }
-              return <Ionicons name={iconName} size={size}/>;
-            },
-            })}
+          <Drawer.Navigator 
+            // screenOptions={( {route} ) => ({ tabBarIcon: ({size}) => {
+            //   let iconName;
+            //   if(route.name === 'Welcome'){
+            //     iconName = 'ios-home';
+            //   } else if (route.name === 'Login'){
+            //     iconName = 'ios-enter';
+            //   }
+            //   return <Ionicons name={iconName} size={size}/>;
+            // },
+            // })}
+            useLegacyImplementation
             initialRouteName='Login'>
-            <Tab.Screen name="Welcome" component={WelcomeScreen} options={{ title: 'Home' }} />
-            <Tab.Screen name="Login" component={LoginScreen} />
-          </Tab.Navigator>
+            <Drawer.Screen name="Welcome" component={WelcomeScreen} options={{ title: 'Home' }} />
+            <Drawer.Screen name="Login" component={LoginScreen} />
+          </Drawer.Navigator>
         </View>
         <View style={styles.footerContainer}>
           <LittleLemonFooter />
