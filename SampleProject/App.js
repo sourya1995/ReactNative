@@ -13,20 +13,20 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      {/* <View style={styles.container}>
-        <LittleLemonHeader />
-        <LoginScreen />
-      </View>
-      <View style={styles.footerContainer}>
-        <LittleLemonFooter />
-      </View> */}
+
 
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Welcome"
-        screenOptions = {{ headerStyle: { backgroundColor: '#FBDABB' }}}>
-          <Stack.Screen name="Welcome" component={WelcomeScreen} options = {{ title: 'Home'}} />
-          <Stack.Screen name="Menu" component={MenuScreen} />
-        </Stack.Navigator>
+        <View style={styles.container}>
+          <LittleLemonHeader />
+          <Stack.Navigator initialRouteName="Login"
+            screenOptions={{ headerStyle: { backgroundColor: '#FBDABB' } }}>
+            <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ title: 'Home' }} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+          </Stack.Navigator>
+        </View>
+        <View style={styles.footerContainer}>
+          <LittleLemonFooter />
+        </View>
       </NavigationContainer>
     </>
   );
