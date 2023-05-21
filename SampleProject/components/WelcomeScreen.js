@@ -3,15 +3,16 @@ import { View } from "react-native/types";
 
 export default function WelcomeScreen() {
     const [firstName, onChangeFirstName] = useState('');
+    const colorScheme = useColorScheme();
     return (
-        <ScrollView indicatorStyle={"white"} style={styles.container}>
+        <ScrollView indicatorStyle={"white"} style={[styles.container, colorScheme === 'light' ? {backgroundColor: '#fff'} :{ backgroundColor: '#333333'}, ]}>
             <View style={styles.headerWrapper}>
                 <Image style={styles.image} source={require('./img/logo.png')} resizeMode="cover" accessible={true} accessibilityLabel={'Little Lemon Logo'} />
-                <Text style={styles.headerText}>
+                <Text style={[styles.headerText, colorScheme === 'light' ? {color: '#333333'} :{ color: '#EDEFEE'}, ]}>
                     Welcome to Little Lemon
                 </Text>
             </View>
-            <Text style={styles.regularText}>
+            <Text style={[styles.regularText,  colorScheme === 'light' ? {color: '#333333'} :{ color: '#EDEFEE'}, ]}>
                 Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a
                 lively but casual environment. We would love to hear your experience with us!
             </Text>
