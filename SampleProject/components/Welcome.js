@@ -1,10 +1,12 @@
-import { ScrollView } from "react-native/types"
+import { ScrollView, useColorScheme } from "react-native/types"
 
 const Welcome = () => {
+    const colorScheme = useColorScheme();
     return (
-          <ScrollView style={styles.container}>
+          <ScrollView style={[styles.container, colorScheme === 'light' ? { backgroundColor: '#fff'} : {backgroundColor: '#333333'}, ]}> {''}
             <Image style={styles.logo} source={require('img/littleLemonLogo.png')} 
             resizeMode="center" accessible={true} accessibilityLabel={'Little Lemon Logo'}/>
+            <Text style={styles.regular}>Color Scheme: {colorScheme}</Text> {''}
             <Text style={styles.title}>
                 Little Lemon, your local Mediterranean Bistro
             </Text>
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 24,
         marginTop: 25,
-        backgroundColor: '#fff',
+        
     },
     title: {
         marginTop: 16,
@@ -46,6 +48,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center'
     },
+    regular: {
+        fontSize: 18,
+        textAlign: 'center',
+    }
 });
 
 export default Welcome;
