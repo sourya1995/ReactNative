@@ -1,4 +1,5 @@
-import { FlatList, ScrollView, SectionList, View } from "react-native/types";
+import { useState } from "react";
+import { FlatList, Pressable, ScrollView, SectionList, View } from "react-native/types";
 
 
 const menuItemsToDisplay = [
@@ -65,6 +66,8 @@ const Footer = () => (
 
 const MenuItems = () => {
 
+    const [showMenu, setShowMenu] = useState(false);
+
     const renderItem = ({ item }) => <Item name={item.name} price={item.price} />;
     const renderSectionHeader = ({ section: { title } }) => (
         <View style={menuStyles.headerStyle}>
@@ -73,6 +76,16 @@ const MenuItems = () => {
     );
     return (
         <View style={menuStyles.container}>
+            {!showMenu && (
+                <Text style={menuStyles.infoSection}> Little Lemon is a charming neighborhood bistro that serves simple food
+                    and classic cocktails in a lively but casual environment. View our
+                    menu to explore our cuisine with daily specials!</Text>
+            )}
+            <Pressable style={menuStyles.button} onPress={() => { setShowMenu(!showMenu); }}>
+                <Text style={menuStyles.buttonText}>
+                    {showMenu ? 'Home' : 'View Menu'}
+                </Text>
+            </Pressable>
 
             <SectionList keyExtractor={(item, index) => item + index} sections={menuItemsToDisplay} renderItem={renderItem} renderSectionHeader={renderSectionHeader} ListFooterComponent={Footer} ItemSeparatorComponent={Separator}>
 
@@ -101,14 +114,15 @@ const menuStyles = StyleSheet.create({
     },
     sectionHeader: {
 
-        color: 'black',
-        fontSize: 26,
+        color: '#333333',
+        backgroundColor: '#FBDABB',
+        fontSize: 34,
         flexWrap: 'wrap',
         textAlign: 'center',
     },
     itemText: {
         color: '#F4CE14',
-        fontSize: 20,
+        fontSize: 32,
     },
     separator: {
         borderBottomWidth: 1,
@@ -119,6 +133,33 @@ const menuStyles = StyleSheet.create({
         fontSize: 20,
         flexWrap: 'wrap',
         textAlign: 'center',
+    },
+    button: {
+        fontSize: 22,
+        padding: 10,
+        marginVertical: 8,
+        margin: 40,
+        backgroundColor: '#EDEFEE',
+        borderColor: '#EDEFEE',
+        borderRadius: 12,
+        borderWidth: 2,
+
+
+
+    },
+    buttonText: {
+        color: '#333333',
+        fontSize: 20,
+        textAlign: 'center',
+    },
+    infoSection: {
+        color: '#EDEFEE',
+        fontSize: 24,
+        textAlign: 'center',
+        padding: 20,
+        marginVertical: 8,
+        backgroundColor: '#495E57',
+
     },
 });
 
