@@ -18,6 +18,9 @@ export default function LoginScreen() {
                     <Pressable onPress={() => onLoggedIn(!loggedIn)} style={styles.button}>
                         <Text style={styles.buttonText}>Log in</Text>
                     </Pressable>
+                    <Pressable onPress={() => navigation.navigate('Welcome')} style={styles.button}>
+                        <Text style={styles.buttonText}>Log in</Text>
+                    </Pressable>
                 </>
             )}
 
@@ -28,6 +31,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#333333',
     },
     headerText: {
         padding: 40,
