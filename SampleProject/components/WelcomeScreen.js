@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         color: '#EDEFEE',
         textAlign: 'center',    
-        fontWeight: 'bold',
+    
     },
     image: {
 
